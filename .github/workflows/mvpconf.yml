@@ -31,8 +31,8 @@ jobs:
     - name: Criar container
       run: docker run --name testeapi -p 1234:80 -d renatogroffe/apicontagem-mvpconf:latest
 
-    - name: Enviar 100 requisições
-      run: curl http://localhost:1234/contador -w "\n"
+    - name: Testar container
+      run: docker ps
 
     - name: Executar testes automatizados
       run: dotnet test ${{ env.CAMINHO_PROJETO_TESTES }} --verbosity minimal
