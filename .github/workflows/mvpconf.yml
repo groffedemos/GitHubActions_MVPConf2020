@@ -34,6 +34,10 @@ jobs:
     - name: Testar container
       run: docker ps
 
+    - name: Testar requisições
+      shell: pwsh
+      run: Invoke-RestMethod -Uri "http://localhost:1234/contador" -Method GET
+        
     - name: Executar testes automatizados
       run: dotnet test ${{ env.CAMINHO_PROJETO_TESTES }} --verbosity minimal
       
